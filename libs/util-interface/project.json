@@ -1,20 +1,20 @@
 {
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/api/util-interface/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/util-interface/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/api/util-interface/**/*.ts"]
+        "lintFilePatterns": ["libs/util-interface/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/api/util-interface"],
+      "outputs": ["coverage/libs/util-interface"],
       "options": {
-        "jestConfig": "libs/api/util-interface/jest.config.ts",
+        "jestConfig": "libs/util-interface/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-  displayName: 'api-util-interface',
-  preset: '../../../jest.preset.js',
+  displayName: 'util-interface',
+  preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +11,5 @@ export default {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/api/util-interface',
+  coverageDirectory: '../../coverage/libs/util-interface',
 };

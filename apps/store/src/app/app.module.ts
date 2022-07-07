@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +24,7 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
       { initialNavigation: 'enabledBlocking' }
     ),
     MatCardModule,
+    HttpClientModule,
     StoreUiSharedModule,
   ],
   providers: [],

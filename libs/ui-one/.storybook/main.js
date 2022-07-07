@@ -1,4 +1,4 @@
-const rootMain = require('../../../../.storybook/main');
+const rootMain = require('../../../.storybook/main');
 
 module.exports = {
   ...rootMain,
@@ -10,16 +10,6 @@ module.exports = {
     '../src/lib/**/*.stories.mdx',
     '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  refs: {
-    'one-composed': {
-      title: 'One composed',
-      url: 'http://localhost:4401',
-    },
-    'two-composed': {
-      title: 'Two composed',
-      url: 'http://localhost:4402',
-    },
-  },
   addons: [...rootMain.addons],
   webpackFinal: async (config, { configType }) => {
     // apply any global webpack configs that might have been specified in .storybook/main.js

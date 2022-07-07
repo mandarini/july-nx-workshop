@@ -9,6 +9,10 @@
     "store-ui-shared": "libs/store/ui-shared",
     "store-ui-shared-e2e": "apps/store-ui-shared-e2e",
     "store-util-formatters": "libs/store/util-formatters",
+    "ui-one": "libs/ui-one",
+    "ui-one-e2e": "apps/ui-one-e2e",
+    "ui-two": "libs/ui-two",
+    "ui-two-e2e": "apps/ui-two-e2e",
     "util-interface": "libs/util-interface"
   }
 }

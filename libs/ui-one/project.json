@@ -1,0 +1,51 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ui-one/src",
+  "prefix": "bg-hoard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui-one"],
+      "options": {
+        "jestConfig": "libs/ui-one/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/ui-one/**/*.ts", "libs/ui-one/**/*.html"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4401,
+        "configDir": "libs/ui-one/.storybook",
+        "browserTarget": "ui-one:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputDir": "dist/storybook/ui-one",
+        "configDir": "libs/ui-one/.storybook",
+        "browserTarget": "ui-one:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

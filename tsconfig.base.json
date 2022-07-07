@@ -22,6 +22,8 @@
       "@bg-hoard/store/util-formatters": [
         "libs/store/util-formatters/src/index.ts"
       ],
+      "@bg-hoard/ui-one": ["libs/ui-one/src/index.ts"],
+      "@bg-hoard/ui-two": ["libs/ui-two/src/index.ts"],
       "@bg-hoard/util-interface": ["libs/util-interface/src/index.ts"]
     }
   },

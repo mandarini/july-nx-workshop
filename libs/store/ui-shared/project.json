@@ -19,6 +19,38 @@
           "libs/store/ui-shared/**/*.html"
         ]
       }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/store/ui-shared/.storybook",
+        "browserTarget": "store-ui-shared:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputDir": "dist/storybook/store-ui-shared",
+        "configDir": "libs/store/ui-shared/.storybook",
+        "browserTarget": "store-ui-shared:build-storybook",
+        "compodoc": false,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   },
   "tags": []

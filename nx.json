@@ -27,7 +27,9 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {
@@ -45,5 +47,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "store"
+  "defaultProject": "api"
 }

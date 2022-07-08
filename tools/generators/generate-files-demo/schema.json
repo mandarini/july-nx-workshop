@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "generate-files-demo",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Useless file name.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "js": {
+      "type": "boolean",
+      "description": "Create a javascript file.",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

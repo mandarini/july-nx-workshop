@@ -23,6 +23,18 @@ function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   return Array.from(new Set(allScopes));
 }
 
+function replaceScopes(content: string, scopes: string[]): string {
+  const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
+  const PATTERN = /interface Schema \{\n.*\n.*\n\}/gm;
+  return content.replace(
+    PATTERN,
+    `interface Schema {
+  name: string;
+  directory: ${joinScopes};
+}`
+  );
+}
+
 export default async function (tree: Tree) {
   const scopes = getScopes(getProjects(tree));
 
@@ -34,6 +46,14 @@ export default async function (tree: Tree) {
     schemaJson.properties.directory.enum = scopes;
     return schemaJson;
   });
+
+  const content = tree.read(
+    'tools/generators/util-lib/index.ts',
+    'utf-8'
+  ) as string;
+  const newContent = replaceScopes(content, scopes);
+
+  tree.write('tools/generators/util-lib/index.ts', newContent);
 
   await formatFiles(tree);
 }

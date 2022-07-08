@@ -2,5 +2,5 @@
 <% if ( isPlainJs ) { %> // Plain JS <% } %>
 
 export interface <%= myInterfaceName %>Interface {
-  <%= propOne %>:  <%=  typeOfOne %>,
+  <%= propOne %>:  <%=  typeOfOne %>;
 }

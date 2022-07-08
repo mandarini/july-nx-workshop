@@ -1,0 +1,18 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Deploying apps
+    steps:
+      - uses: actions/checkout@v1
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npx nx build store -- --configuration=production
+      - run: npx nx build admin-ui -- --configuration=production
+      - run: npx nx deploy store
+      - run: npx nx deploy admin-ui

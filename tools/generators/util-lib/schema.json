@@ -13,7 +13,7 @@
       }
     },
     "directory": {
-      "enum": ["api", "shared", "store", "video-games"],
+      "enum": ["api", "malone", "shared", "store", "video-games"],
       "description": "Provide a directory for the library.",
       "x-prompt": {
         "message": "What directory should the library be created in?",
@@ -22,6 +22,10 @@
           {
             "value": "api",
             "label": "Api"
+          },
+          {
+            "value": "malone",
+            "label": "Malone"
           },
           {
             "value": "shared",

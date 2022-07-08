@@ -11,7 +11,30 @@
         "$source": "argv",
         "index": 0
       }
+    },
+    "directory": {
+      "enum": ["store", "api", "shared"],
+      "description": "Provide a directory for the library.",
+      "x-prompt": {
+        "message": "What directory should the library be created in?",
+        "type": "list",
+        "items": [
+          {
+            "value": "store",
+            "label": "Store"
+          },
+          {
+            "value": "api",
+            "label": "API"
+          },
+          {
+            "value": "shared",
+            "label": "Shared"
+          }
+        ]
+      }
     }
   },
-  "required": ["name"]
+  "required": ["name"],
+  "additionalProperties": false
 }

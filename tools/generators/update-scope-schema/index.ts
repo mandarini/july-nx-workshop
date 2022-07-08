@@ -25,10 +25,10 @@ function getScopes(projectMap: Map<string, ProjectConfiguration>) {
 
 function replaceScopes(content: string, scopes: string[]): string {
   const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
-  const PATTERN = /interface Schema \{\n.*\n.*\n\}/gm;
+  const PATTERN = /interface UtilLibSchema \{\n.*\n.*\n\}/gm;
   return content.replace(
     PATTERN,
-    `interface Schema {
+    `interface UtilLibSchema {
   name: string;
   directory: ${joinScopes};
 }`

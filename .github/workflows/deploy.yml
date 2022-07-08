@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
+  SURGE_DOMAIN_ADMIN_UI: ${{ secrets.SURGE_DOMAIN_ADMIN_UI }}
+  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npx nx build store -- --configuration=production
-      - run: npx nx build admin-ui -- --configuration=production
+      - run: npx nx build store --configuration=production
+      - run: npx nx build admin-ui --configuration=production
       - run: npx nx deploy store
       - run: npx nx deploy admin-ui

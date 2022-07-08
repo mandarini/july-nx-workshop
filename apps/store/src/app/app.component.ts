@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private http: HttpClient) {}
 
   formatRating = formatRating;
-  title = 'Board Game Hoard';
+  title = 'Board Game Hoard by Katerina';
   // games$ = this.http.get<Game[]>('/api/games');
   games = getAllGames();
 }

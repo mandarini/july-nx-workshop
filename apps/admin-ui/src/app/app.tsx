@@ -5,7 +5,7 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <>
-      <NxWelcome title="admin-ui" />
+      <NxWelcome title="Admin UI by Katerina" />
       <div />
     </>
   );

@@ -5,6 +5,7 @@ import {
   ProjectConfiguration,
   Tree,
   updateJson,
+  updateProjectConfiguration,
 } from '@nrwl/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
@@ -35,7 +36,21 @@ function replaceScopes(content: string, scopes: string[]): string {
   );
 }
 
+function addScopeIfMissing(tree: Tree) {
+  const projectMap = getProjects(tree);
+  Object.keys(projectMap).forEach((projectName) => {
+    const project = projectMap[projectName];
+    if (!project.tags.some((tag: string) => tag.startsWith('scope:'))) {
+      const scope = projectName.split('-')[0];
+      project.tags.push(`scope:${scope}`);
+      updateProjectConfiguration(tree, projectName, project);
+    }
+  });
+}
+
 export default async function (tree: Tree) {
+  addScopeIfMissing(tree);
+
   const scopes = getScopes(getProjects(tree));
 
   updateJson(tree, 'tools/generators/util-lib/schema.json', (schemaJson) => {

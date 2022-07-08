@@ -5,4 +5,5 @@ export interface Game {
   description: string;
   price: number;
   rating: number;
+  katerina?: string;
 }

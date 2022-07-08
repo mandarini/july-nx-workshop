@@ -17,7 +17,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npx nx build store --configuration=production
-      - run: npx nx build admin-ui --configuration=production
-      - run: npx nx deploy store
-      - run: npx nx deploy admin-ui
+      - run: npx nx affected --target=build --base=HEAD~1 --parallel --configuration=production
+      - run: npx nx affected --target=deploy --base=HEAD~1 --parallel

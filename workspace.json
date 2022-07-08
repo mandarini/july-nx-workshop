@@ -4,6 +4,8 @@
   "projects": {
     "api": "apps/api",
     "api-util-notifications": "libs/api/util-notifications",
+    "malone": "apps/malone",
+    "malone-e2e": "apps/malone-e2e",
     "shared-feature-my-feat": "libs/shared/feature-my-feat",
     "store": "apps/store",
     "store-e2e": "apps/store-e2e",

@@ -18,6 +18,9 @@
       "@bg-hoard/api/util-notifications": [
         "libs/api/util-notifications/src/index.ts"
       ],
+      "@bg-hoard/relib-one": ["libs/relib-one/src/index.ts"],
+      "@bg-hoard/relib-three": ["libs/relib-three/src/index.ts"],
+      "@bg-hoard/relib-two": ["libs/relib-two/src/index.ts"],
       "@bg-hoard/shared/feature-my-feat": [
         "libs/shared/feature-my-feat/src/index.ts"
       ],

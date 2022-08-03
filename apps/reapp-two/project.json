@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/reapp-two/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/reapp-two",
+        "index": "apps/reapp-two/src/index.html",
+        "baseHref": "/",
+        "main": "apps/reapp-two/src/main.tsx",
+        "polyfills": "apps/reapp-two/src/polyfills.ts",
+        "tsConfig": "apps/reapp-two/tsconfig.app.json",
+        "assets": [
+          "apps/reapp-two/src/favicon.ico",
+          "apps/reapp-two/src/assets"
+        ],
+        "styles": ["apps/reapp-two/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/reapp-two/src/environments/environment.ts",
+              "with": "apps/reapp-two/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "reapp-two:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "reapp-two:build:development"
+        },
+        "production": {
+          "buildTarget": "reapp-two:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/reapp-two/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/reapp-two"],
+      "options": {
+        "jestConfig": "apps/reapp-two/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

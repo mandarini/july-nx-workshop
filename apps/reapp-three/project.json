@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/reapp-three/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/reapp-three",
+        "index": "apps/reapp-three/src/index.html",
+        "baseHref": "/",
+        "main": "apps/reapp-three/src/main.tsx",
+        "polyfills": "apps/reapp-three/src/polyfills.ts",
+        "tsConfig": "apps/reapp-three/tsconfig.app.json",
+        "assets": [
+          "apps/reapp-three/src/favicon.ico",
+          "apps/reapp-three/src/assets"
+        ],
+        "styles": ["apps/reapp-three/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/reapp-three/src/environments/environment.ts",
+              "with": "apps/reapp-three/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "reapp-three:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "reapp-three:build:development"
+        },
+        "production": {
+          "buildTarget": "reapp-three:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/reapp-three/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/reapp-three"],
+      "options": {
+        "jestConfig": "apps/reapp-three/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -4,7 +4,16 @@ module.exports = {
   ...rootMain,
 
   core: { ...rootMain.core, builder: 'webpack5' },
-
+  refs: {
+    'two-composed': {
+      title: 'Two composed',
+      url: 'http://localhost:4403',
+    },
+    'three-composed': {
+      title: 'Three composed',
+      url: 'http://localhost:4404',
+    },
+  },
   stories: [
     ...rootMain.stories,
     '../src/app/**/*.stories.mdx',
